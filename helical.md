@@ -10,7 +10,10 @@ My location is pretty noisy on all bands. In particular, the
 continuously transmits several trunked signals between 141 and 143 MHz. These signals are so strong
 that the SDR receivers are overloaded, and no reception on the 2m band is possible:
 
-![spectrum1](images/helical/spect_no_filter_hi_gain.png)
+<a href="images/helical/spect_no_filter_hi_gain.png" target="_blank" rel="noopener noreferrer"><img src="images/helical/spect_no_filter_hi_gain.png" alt="spectrum1"></a>
 
-When the receiver gain is turned down to prevent clipping, weak signal reception is no longer possible.
+When the receiver gain is turned down to prevent clipping, weak signal reception is no longer possible,
+but at least the offending signals become visible on the band scope.
 
+
+<a href="images/helical/spect_no_filter_lo_gain.png" target="_blank" rel="noopener noreferrer"><img src="images/helical/spect_no_filter_lo_gain.png" alt="spectrum1"></a>
