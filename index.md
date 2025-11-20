@@ -1,5 +1,6 @@
 ---
-title: VE3NEA's Notes
+title: Home
+nav_order: 1
 ---
 
 # VE3NEA's Notes
