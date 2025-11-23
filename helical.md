@@ -18,7 +18,7 @@ Here is what Airspy Mini receives with its gain is set to a high value:
 <a href="images/helical/spect_no_filter_hi_gain.png" target="_blank"><img src="images/helical/spect_no_filter_hi_gain.png"></a>
 *Click on the image to enlarge.*
 
-When the receiver gain is turned all the way until the clipping is gone, weak signal reception is no longer possible, but at least the offending signals become visible on the band scope:
+When the receiver gain is turned down until the clipping is gone, weak signal reception is no longer possible, but at least the offending signals become visible on the band scope:
 
 <a href="images/helical/spect_no_filter_lo_gain.png" target="_blank"><img src="images/helical/spect_no_filter_lo_gain.png"></a>
 *Click on the image to enlarge.*
@@ -48,7 +48,7 @@ A passband filter consisting of two helical resonators looks like this:
 
 ### Equivalent Circuit
 
- The passband filter shown above has the following equivalent circuit:
+ The filter shown above has the following equivalent circuit:
 
 ![coupled resonators](images/helical/coupled_resonators.png)
 
@@ -59,7 +59,6 @@ In a real filter there are no capacitors: the helixes are self-resonant, and the
 The capacitance of C3 determines the coupling coefficient K:
 
 ![resonator coupling](images/helical/coupling_coefficient.png)
-*Click on the image to enlarge.*
 
 - at the low values of K the filter response is bell-shaped, and the signal loss in the passband is significant;
 - as K increases, the loss decreases, and the bandwidth slightly increases;
@@ -70,24 +69,23 @@ K=1, called critical coupling, provides the best combination of filter shape, ba
 
 ### Resonator Loading
 
-There is a common misconception that the position of the taps on the coils determines the input and output impedance of the filter. This is not true. Whatever impedance transformation occurs at the filter input, the inverse of that occurs at the output. The tap position, however, is important as it determines the loading of the resonator ( Q_unloaded / Q_loaded) and thus controls the trade-off between the filter bandwidth and its losses. When we increase the loading, we reduce the losses in the passband at the expense of widening the filter passband.
+There is a common misconception that the position of the taps on the coils determines the input and output impedance of the filter. This is not true. Whatever impedance transformation happens at the filter input, the inverse of that happens at the output. The tap position, however, is important as it determines the loading of the resonator ( Q_unloaded / Q_loaded) and thus controls the trade-off between the filter bandwidth and its losses. When we increase the loading, we reduce the losses in the passband at the expense of widening the filter passband.
 
 The chart below shows the frequency response of a two-resonator helical filter with different tap positions. In this example, when the tap is placed at a point where the filter loss is about 0.5 dB, the bandwidth of the filter is 4 MHz. As the tap moves lower on the helix, the resonator loading decreases, the losses increase, and the bandwidth decreases. When the loss reaches 3.5 dB, the bandwidth goes down to 600 kHz.
 
 If the filter is located after the preamp, a few dB of loss is an acceptable price for a narrow bandwidth and higher rejection in the stopband.
 
 ![loss vs. bandwidth](images/helical/loss_vs_bw.png)
-*Click on the image to enlarge.*
 
 ## Design
 
-There are several calculators that compute the dimensions of the filter:
+Several calculators that compute the dimensions of the filter are available on the Internet:
 
 - [Coil64](https://coil32.net/online-calculators/helical-resonator-bandpass-filter.html);
 - [Helical Bandpass Filter Designer](https://www.changpuak.ch/electronics/Helical_Bandpass_Filter_Designer.php);
 - [Helical](https://web.archive.org/web/20250109193926/https://www.tonnesoftware.com/helical.html).
 
-I used Coil64 for this project. In general, the larger the filter, the higher unloaded Q is achieved, assuming that the relations between all dimensions are optimal. I decided to use a 1/4" (6.35 mm) copper tube for the helix, the largest diameter that was practical, and computed all other dimensions as follows:
+In general, the larger the filter, the higher unloaded Q is achieved, assuming that the relations between all dimensions are optimal. I decided to use a 1/4" (6.35 mm) copper tube for the helix, the largest diameter that was practical, and computed all other dimensions using Coil64 as follows:
 
 ![helical filter](https://coil32.net/images/img/calc/helix2.png)
 
@@ -136,17 +134,18 @@ It was not difficult to source all required materials from the local and online 
 - SMA female jack, 2 pcs.
 
 <a href="images/helical/materials.jpg" target="_blank"><img src="images/helical/materials.jpg" ></a>
+*Click on the image to enlarge.*
 
-I tried to make all dimensions accurate down to 0.5 mm, and took care to prevent damaging the conducting surfaces. I did not sand the PCB and tinned the edges of the walls as little as possible since solder has lower conductivity than copper. To make the coils, I filled the tube with sand and wound it on a plastic pipe of a suitable diameter.
+I tried to make all dimensions accurate down to 0.5 mm, and took care to prevent damaging the conducting surfaces. I did not sand the PCB, and tinned the edges of the walls as little as possible since solder has lower conductivity than copper. To make the coils, I filled the tube with sand and wound it on a plastic pipe of a suitable diameter.
 
-The height of the wall between the resonators had to be 71 mm, but the largest piece of two-sided PCB that I had was only 60 mm high, so I used it. I had to add a 20x20 mm piece on top of it to bring the coupling between the resonators in the desired range.
+The height of the wall between the resonators had to be 71 mm, but the largest piece of two-sided PCB that I had was only 60 mm high, so I used what I had. I added a 20x20 mm piece on top of it to bring the coupling between the resonators in the desired range.
 
 The two machine screws were added to tune the resonators to the desired frequency, and the third screw in the center was used to adjust the coupling.
 
 <a href="images/helical/filter_inside.jpg" target="_blank"><img src="images/helical/filter_inside.jpg" ></a>
 *Click on the image to enlarge.*
 
-The closing lid of the filter was attached with the copper on the outer side, to allow soldering it to the shield. Initially I soldered it only at two points per edge, since I had to remove it many times to make the adjustments. Once all work was finished, I soldered it completely along all edges, but this did not change any of filter's characteristics, so obviously this was not necessary.
+The closing lid of the filter was attached with the copper on the outer side, to allow soldering it to the shield. Initially I soldered the lid only at two points per edge, since I had to remove it many times to make the adjustments. Once all work was finished, I soldered it completely along all edges, but this did not change any of filter's characteristics, so obviously this was not necessary.
 
 <a href="images/helical/filter_outside.jpg" target="_blank"><img src="images/helical/filter_outside.jpg" ></a>
 *Click on the image to enlarge.*
